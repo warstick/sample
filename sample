@@ -54,12 +54,12 @@ export class WorkspaceDropdown extends React.Component {
     const { router } = this.context
     const { params } = router
     const { workspaceId } = params
-    const isSharedBoardList = this.props.workspaceList instanceof SharedBoardsList
+    const { workspaceList } = this.props
     const validWorkSpaceId = this.hasWorkSpaceId(workspaceId)
 
-    if (isSharedBoardList && validWorkSpaceId) {
+    if (workspaceList instanceof SharedBoardsList && validWorkSpaceId) {
       return 'active-shareBoard-view'
-    } else if (isWorkspaceList && validWorkSpaceId) {
+    } else if (workspaceList instanceof WorkspaceList && validWorkSpaceId) {
       return 'active-workspace-view'
     }
 
